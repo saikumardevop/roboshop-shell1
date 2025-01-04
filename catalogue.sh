@@ -30,7 +30,7 @@ systemctl enable catalogue
 systemctl restart catalogue
 
 echo -e "\e[31m>>> Copy MongoDB repo <<<<<<<<\e[0m"
-cp mongo.repo /etc/yum.repos.d/mongo.repo
+cp /root/roboshop-shell/mongo.repo /etc/yum.repos.d/mongo.repo
 
 echo -e "\e[31m>>> Install  MongoDB Client  <<<<<<<<\e[0m"
 dnf install mongodb-org-shell -y
