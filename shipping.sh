@@ -28,7 +28,6 @@ mysql -h mysql-dev.rajasekhar72.store  -uroot -pRoboShop@1 < /app/schema/shippin
 echo -e "\e[31m>>> Setup Systemd Service <<<<<<<<\e[0m"
 cp /root/roboshop-shell/shipping.service /etc/systemd/system/shipping.service
 
-
 echo -e "\e[31m>>> Start  shipping Service <<<<<<<<\e[0m"
 systemctl daemon-reload
 systemctl enable shipping
