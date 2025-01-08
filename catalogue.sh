@@ -25,7 +25,6 @@ echo -e "\e[31m>>> Copy Catalogue SystemD file <<<<<<<<\e[0m"
 cp /root/roboshop-shell/catalogue.service /etc/systemd/system/catalogue.service
 
 echo -e "\e[31m>>> Start  Catalogue Service <<<<<<<<\e[0m"
-sed -i -e 's|127.0.0.1|0.0.0.0|' /etc/mongod.conf
 systemctl daemon-reload
 systemctl enable catalogue
 systemctl restart catalogue
