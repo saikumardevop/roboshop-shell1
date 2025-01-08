@@ -20,6 +20,7 @@ unzip /tmp/cart.zip
 
 echo -e "\e[33m>>>>>>>>> Install   NodeJS  Dependencies <<<<<<<<\e[0m"
 npm install
+
 echo -e "\e[33m>>> Copy Cart SystemD file <<<<<<<<\e[0m"
 cp /root/roboshop-shell/cart.service /etc/systemd/system/cart.service
 
