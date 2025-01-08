@@ -27,4 +27,4 @@ cp /root/roboshop-shell/cart.service /etc/systemd/system/cart.service
 echo -e "\e[33m>>> Start  cart Service <<<<<<<<\e[0m"
 systemctl daemon-reload
 systemctl enable cart
-systemctl restart cart ; tail /var/log/messages
+systemctl restart cart ; tail -f /var/log/messages
