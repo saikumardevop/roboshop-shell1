@@ -28,6 +28,7 @@ echo -e "\e[31m>>> Start  Catalogue Service <<<<<<<<\e[0m"
 systemctl daemon-reload
 systemctl enable catalogue
 systemctl restart catalogue
+tail /var/log/messages
 
 echo -e "\e[31m>>> Copy MongoDB repo <<<<<<<<\e[0m"
 cp /root/roboshop-shell/mongo.repo /etc/yum.repos.d/mongo.repo
