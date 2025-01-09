@@ -23,7 +23,7 @@ echo -e "\e[31m>>> INSTALL MYSQL file <<<<<<<<\e[0m"
 dnf install mysql -y
 
 echo -e "\e[31m>>> Load Schema <<<<<<<<\e[0m"
-mysql -h mysql.rajasekhar72.store  -uroot -pRoboShop@1 < /app/schema/shipping.sql
+mysql -h mysql-dev.rajasekhar72.store  -uroot -pRoboShop@1 < /app/schema/shipping.sql
 
 echo -e "\e[31m>>> Setup Systemd Service <<<<<<<<\e[0m"
 cp /root/roboshop-shell/shipping.service /etc/systemd/system/shipping.service
