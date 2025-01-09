@@ -1,5 +1,5 @@
 echo -e "\e[36m>>>>>>>>> Install Python <<<<<<<<\e[0m"
-yum install python36 gcc python3-devel -y
+dnf install python36 gcc python3-devel -y
 
 echo -e "\e[36m>>>>>>>>> Add Application User <<<<<<<<\e[0m"
 useradd roboshop
@@ -9,7 +9,7 @@ rm -rf /app
 mkdir /app
 
 echo -e "\e[36m>>>>>>>>> Download App Content <<<<<<<<\e[0m"
-curl-L-o/tmp/payment.zip https://roboshop-artifacts.s3.amazonaws.com/payment.zip
+curl -L -o /tmp/payment.zip https://roboshop-artifacts.s3.amazonaws.com/payment.zip
 
 echo -e "\e[36m>>>>>>>>> Extract App Content <<<<<<<<\e[0m"
 cd /app
