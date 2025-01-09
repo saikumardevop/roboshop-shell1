@@ -13,3 +13,4 @@ systemctl start mysqld
 
 echo -e "\e[33m>>> Reset MYSQL  Password <<<<<<<<\e[0m"
 mysql_secure_installation --set-root-pass RoboShop@1
+
