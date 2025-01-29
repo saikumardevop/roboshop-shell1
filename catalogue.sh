@@ -1,3 +1,5 @@
+source ${script_path}/common.sh
+
 echo -e "\e[31m>>>>>>>>> configuring nodejs  repos <<<<<<<<\e[0m"
 curl -fsSL https://rpm.nodesource.com/setup_lts.x | sudo bash -
 
