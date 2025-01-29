@@ -2,35 +2,40 @@ app_user=roboshop
 script=$(realpath "$0")
 script_path=$(dirname "$script")
 
+print_head(){
+  echo -e "\e[36m >>>>>>>> $* <<<<<<<<<<<<\e[0m"
+
+}
+
 func_nodejs(){
 
-echo -e "\e[33m>>>>>>>>> configuring nodejs  repos <<<<<<<<\e[0m"
+print_head  "configuring nodejs  repos"
 curl -fsSL https://rpm.nodesource.com/setup_lts.x | sudo bash -
 
-echo -e "\e[33m>>>>>>>>> Install Nodejs  repos <<<<<<<<\e[0m"
+print_head  "Install Nodejs  repos"
 dnf install nodejs -y
 
-echo -e "\e[33m>>>>>>>>> Add  Application User  <<<<<<<<\e[0m"
+print_head  "Add  Application User"
 useradd roboshop
 
-echo -e "\e[33m>>>>>>>>> Created Application  Directory<<<<<<<<\e[0m"
+print_head  "Created Application  Directory"
 rm -rf /app
 mkdir /app
 
-echo -e "\e[33m>>>>>>>>> Download  App  Content <<<<<<<<\e[0m"
+print_head  "Download  App  Content"
 curl -o /tmp/${component}.zip https://roboshop-artifacts.s3.amazonaws.com/${component}.zip
 cd /app
 
-echo -e "\e[33m>>>>>>>>> Unzip App  Content <<<<<<<<\e[0m"
+print_head  "Unzip App  Content"
 unzip /tmp/${component}.zip
 
-echo -e "\e[33m>>>>>>>>> Install   NodeJS  Dependencies <<<<<<<<\e[0m"
+print_head  "Install   NodeJS  Dependencies"
 npm install
 
-echo -e "\e[33m>>> Application Directory <<<<<<<<\e[0m"
+print_head "Application Directory"
 cp ${script_path}/${component}.service /etc/systemd/system/${component}.service
 
-echo -e "\e[33m>>> Start  ${component} Service <<<<<<<<\e[0m"
+print_head "Start"
 systemctl daemon-reload
 systemctl enable ${component}
 systemctl restart ${component} ; tail /var/log/messages
