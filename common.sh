@@ -4,7 +4,17 @@ script_path=$(dirname "$script")
 
 print_head(){
   echo -e "\e[36m >>>>>>>> $* <<<<<<<<<<<<\e[0m"
+}
 
+schema_setup(){
+echo -e "\e[33m>>> Copy MongoDB repo <<<<<<<<\e[0m"
+cp ${script_path}/mongo.repo /etc/yum.repos.d/mongo.repo
+
+echo -e "\e[33m>>> Install  MongoDB Client  <<<<<<<<\e[0m"
+dnf install mongodb-org-shell -y
+
+echo -e "\e[33m>>> Load Schema  <<<<<<<<\e[0m"
+mongo --host mongodb-dev.rajasekhar72.store </app/schema/${component}
 }
 
 func_nodejs(){
@@ -39,5 +49,7 @@ print_head "Start"
 systemctl daemon-reload
 systemctl enable ${component}
 systemctl restart ${component} ; tail /var/log/messages
+
+schema_setup
 
 }
