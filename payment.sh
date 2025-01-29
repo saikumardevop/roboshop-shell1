@@ -30,6 +30,8 @@ pip3.6 install -r requirements.txt
 echo -e "\e[36m>>>>>>>>>Setup SystemD Service <<<<<<<<<\e[0m"
 sed -i -e "s|rabbitmq_appuser_password|${rabbitmq_appuser_password}"|${script_path}/payment.service
 cp ${script_path}/payment.service /etc/systemd/system/payment.service
+
+echo -e "\e[36m>>>>>>>>> Start payment service <<<<<<<<<\e[0m"
 systemctl daemon-reload
 systemctl enable payment
 systemctl restart payment
