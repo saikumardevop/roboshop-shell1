@@ -24,7 +24,7 @@ unzip /tmp/user.zip
 echo -e "\e[33m>>>>>>>>> Install   NodeJS  Dependencies <<<<<<<<\e[0m"
 npm install
 echo -e "\e[33m>>> Copy Catalogue SystemD file <<<<<<<<\e[0m"
-cp /root/roboshop-shell/user.service /etc/systemd/system/user.service
+cp ${script_path}/user.service /etc/systemd/system/user.service
 
 echo -e "\e[33m>>> Start  User Service <<<<<<<<\e[0m"
 systemctl daemon-reload
