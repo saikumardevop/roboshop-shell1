@@ -1,3 +1,10 @@
+script=$(realpath "$0")
+
+realpath $0
+exit
+script_path=$(dirname "$SCRIPT")
+source ${script_path}/common.sh
+
 echo -e "\e[33m>>>>>>>>> configuring nodejs  repos <<<<<<<<\e[0m"
 curl -fsSL https://rpm.nodesource.com/setup_lts.x | sudo bash -
 
