@@ -1,3 +1,6 @@
+script=$(realpath "$0")
+script_path=$(dirname "$script")
+source ${script_path}/common.sh
 echo -e "\e[31m>>>>>>>>> Maven Installation <<<<<<<<\e[0m"
 dnf install maven -y
 
