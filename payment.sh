@@ -7,6 +7,7 @@ if{ -z "rabbitmq_appuser_password"};then
 echo Input Roboshop Appuser password Missing
 exit
 fi
+
 echo -e "\e[36m>>>>>>>>> Install Python <<<<<<<<\e[0m"
 dnf install python36 gcc python3-devel -y
 
