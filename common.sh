@@ -5,6 +5,7 @@ log_file=/tmp/roboshop.log
 
 func_print_head(){
   echo -e "\e[36m >>>>>>>> $* <<<<<<<<<<<<\e[0m"
+  echo -e "\e[36m >>>>>>>> $* <<<<<<<<<<<<\e[0m" &>>$log_file
 }
 func_stat_check (){
   if [ $1 -eq 0 ]; then
