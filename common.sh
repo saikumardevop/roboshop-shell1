@@ -71,7 +71,7 @@ func_nodejs(){
 }
 
 func_java(){
-  func_print_head "Maven Installation"
+  func_print_head " Install Maven"
   dnf install maven -y
 
   func_app_prereq
