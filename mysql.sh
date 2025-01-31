@@ -8,7 +8,7 @@ echo Input Roboshop Appuser password Missing
 exit
 fi
 
-func_print_head "  Disable Mysql 8 version"
+func_print_head "Disable Mysql 8 version"
 dnf module disable mysql -y &>>$log_file
 func_stat_check $?
 
