@@ -71,7 +71,6 @@ func_nodejs(){
 }
 
 func_java(){
-
   func_print_head "Maven Installation"
   dnf install maven -y
 
