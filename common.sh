@@ -23,7 +23,7 @@ func_schema_setup(){
 
    func_print_head  "Load Schema"
    mysql -h mysql-dev.rajasekhar72.store  -uroot -p${mysql_root_password} < /app/schema/${component}.sql
-  fi
+ fi
 
 }
 
@@ -76,16 +76,18 @@ func_java(){
   if [ $? -eq 0 ]; then
     echo -e "\e[32mSUCCESS\e"[0m"
   else
-    echo -e "\e[31mFALIURE\e"[0m"
+    echo -e "\e[35mFAILURE\e"[0m"
   fi
-
-
-
 
   func_app_prereq
 
   func_print_head "Download Maven Dependencies "
   mvn clean package
+  if [ $? -eq 0 ]; then
+    echo -e "\e[32mSUCCESS\e"[0m"
+  else
+    echo -e "\e[31mFALIURE\e"[0m"
+  fi
   mv target/${component}-1.0.jar ${component}.jar
 
   func_schema_setup
