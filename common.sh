@@ -36,7 +36,7 @@ func_app_prereq(){
   mkdir /app
 
   func_print_head "Download Application Content"
-  curl-L-o/tmp/${component}.zip https://roboshop-artifacts.s3.amazonaws.com/${component}.zip
+  curl -L -o /tmp/${component}.zip https://roboshop-artifacts.s3.amazonaws.com/${component}.zip
 
   func_print_head "Extract Application Content"
   cd /app
