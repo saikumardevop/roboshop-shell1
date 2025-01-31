@@ -3,7 +3,7 @@ script_path=$(dirname "$script")
 source ${script_path}/common.sh
 
 func_print_head "Install Redis Repos"
-yum dnf install https://rpms.remirepo.net/enterprise/remi-release-8.rpm -y &>>$log_file
+dnf install https://rpms.remirepo.net/enterprise/remi-release-8.rpm -y &>>$log_file
 func_stat_check $?
 
 func_print_head "Install Redis"
