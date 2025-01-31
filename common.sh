@@ -10,6 +10,7 @@ func_stat_check (){
     echo -e "\e[32mSUCCESS\e[0m"
   else
     echo -e "\e[33mFALIURE\e[0m"
+    echo "Refer the log file /tmp/roboshop.log for more information"
     exit 1
   fi
 }
@@ -42,7 +43,7 @@ func_schema_setup(){
 
 func_app_prereq(){
   func_print_head "Create Application User"
-  useradd ${app_user}
+  useradd ${app_user} >/tmp/roboshop.log
   func_stat_check $?
 
   func_print_head "Create Application Directory"
@@ -94,7 +95,7 @@ func_nodejs(){
 
 func_java(){
   func_print_head "Install Maven"
-  yum install maven -y
+  yum install maven -y >/tmp/roboshop.log
   func_stat_check $?
 
 
