@@ -5,8 +5,8 @@ log_file=/tmp/roboshop.log
 # rm -f $log_file
 
 func_print_head(){
-  echo -e "\e[36m >>>>>>>> $* <<<<<<<<<<<<\e[0m"
-  echo -e "\e[36m >>>>>>>> $* <<<<<<<<<<<<\e[0m" &>>$log_file
+  echo -e "\e[36m >>>>>>>> $* <<<<"
+  echo -e "\e[36m >>>>>>>> $* <<<<" &>>$log_file
 }
 func_stat_check (){
   if [ $1 -eq 0 ]; then
@@ -115,5 +115,24 @@ func_java(){
 
   func_schema_setup
   func_systemd_setup
+}
 
+func_python(){
+  func_print_head  "Install Python"
+  dnf install python36 gcc python3-devel -y &>>$log_file
+  func_stat_check $?
+
+  func_app_prereq
+
+  func_print_head  "Install Dependencies"
+  pip3.6 install -r requirements.txt &>>$log_file
+  func_stat_check $?
+
+
+
+  func_print_head " UPDATE PASSWORD Setup SystemD Service"
+  sed -i -e "s|rabbitmq_appuser_password|${rabbitmq_appuser_password}"|${script_path}/payment.service &>>$log_file
+  func_stat_check $?
+
+  func_systemd_setup
 }
