@@ -11,7 +11,7 @@ cp roboshop.conf /etc/nginx/default.d/roboshop.conf &>>$log_file
 func_stat_check $?
 
 func_print_head "Clean Old App content"
-rm -rf /usr/share/nginx/html/* &>>$log file
+rm -rf /usr/share/nginx/html/* &>>$log_file
 func_stat_check $?
 
 func_print_head "Download App Content"
