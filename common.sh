@@ -73,6 +73,14 @@ func_nodejs(){
 func_java(){
   func_print_head "Install Maven"
   yum install maven -y
+  if [ $? -eq 0 ]; then
+    echo -e "\e[32mSUCCESS\e"[0m"
+  else
+    echo -e "\e[31mFALIURE\e"[0m"
+  fi
+
+
+
 
   func_app_prereq
 
