@@ -9,24 +9,24 @@ if [ -z "$rabbitmq_appuser_password" ]; then
 fi
 
 func_print_head "Setup ErLang Repos"
-curl -s https://packagecloud.io/install/repositories/rabbitmq/erlang/script.rpm.sh | bash
+curl -s https://packagecloud.io/install/repositories/rabbitmq/erlang/script.rpm.sh | bash &>>$log_file
 func_stat_check $?
 
 func_print_head "Setup RabbitMQ Repos"
-curl -s https://packagecloud.io/install/repositories/rabbitmq/rabbitmq-server/script.rpm.sh | bash
+curl -s https://packagecloud.io/install/repositories/rabbitmq/rabbitmq-server/script.rpm.sh | bash &>>$log_file
 func_stat_check $?
 
 func_print_head "Install ErLang & RabbitMQ"
-yum install erlang rabbitmq-server -y
+yum install erlang rabbitmq-server -y &>>$log_file
 func_stat_check $?
 
 func_print_head "Start RabbitMQ Service"
-systemctl enable rabbitmq-server
-systemctl restart rabbitmq-server
+systemctl enable rabbitmq-server &>>$log_file
+systemctl restart rabbitmq-server &>>$log_file
 func_stat_check $?
 
 func_print_head "Add Application User in RabbtiMQ"
-rabbitmqctl add_user roboshop ${rabbitmq_appuser_password}
+rabbitmqctl add_user roboshop ${rabbitmq_appuser_password} &>>$log_file
 rabbitmqctl set_permissions -p / roboshop ".*" ".*" ".*"
 
 func_stat_check $?
