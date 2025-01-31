@@ -3,7 +3,7 @@ script_path=$(dirname "$script")
 source ${script_path}/common.sh
 
 func_print_head "Download Maven Dependencies"
-mvn clean package &>>$logfile
+mvn clean package &>>$log_file
 func_stat_check $?
 
 func_print_head
