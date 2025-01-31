@@ -86,7 +86,7 @@ func_java(){
   if [ $? -eq 0 ]; then
     echo -e "\e[32mSUCCESS\e"[0m"
   else
-    echo -e "\e[31mFALIURE\e"[0m"
+    echo -e "\e[35mFALIURE\e"[0m"
   fi
   mv target/${component}-1.0.jar ${component}.jar
 
