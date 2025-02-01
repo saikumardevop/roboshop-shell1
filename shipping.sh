@@ -8,6 +8,6 @@ echo Input Roboshop Appuser password Missing
 exit
 fi
 
-component="shipping"
+component=shipping
 schema_setup=mysql
 func_java
