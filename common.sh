@@ -82,7 +82,7 @@ func_systemd_setup(){
 }
 func_nodejs(){
   func_print_head  "configuring nodejs  repos"
-  curl -fsSL https://rpm.nodesource.com/setup_lts.x | sudo bash  &>>$log_file
+  curl -fsSL https://rpm.nodesource.com/setup_lts.x | sudo bash - &>>$log_file
   func_stat_check $?
 
   func_print_head  "Install Nodejs  repos"
