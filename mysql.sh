@@ -9,6 +9,7 @@ func_print_head(){
   echo -e "\e[36m >>>>>>>> $* <<<<"
   echo -e "\e[36m >>>>>>>> $* <<<<" &>>$log_file
 }
+
 func_stat_check (){
   if [ $1 -eq 0 ]; then
     echo -e "\e[32mSUCCESS\e[0m"
