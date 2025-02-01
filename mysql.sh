@@ -1,8 +1,8 @@
-log_file=/tmp/robo.log
 script=$(realpath "$0")
 script_path=$(dirname "$script")
 source ${script_path}/common.sh
 mysql_root_password=$1
+log_file=/tmp/roboshop.log
 
 if [ -z "$mysql_root_password" ]; then
   echo Input MySQL Root Password Missing
