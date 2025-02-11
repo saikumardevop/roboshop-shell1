@@ -32,7 +32,7 @@ func_schema_setup(){
    mongo --host mongodb-dev.rajasekhar72.store </app/schema/${component} &>>$log_file
    func_stat_check $?
  fi
- if [ "${schema_setup}" == "mysql" ]; then
+ if [ "$ schema_setup" == "mysql" ]; then
    func_print_head  "INSTALL MYSQL client"
    dnf install mysql -y &>>$log_file
    func_stat_check $?
