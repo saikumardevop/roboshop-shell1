@@ -92,7 +92,7 @@ func_nodejs(){
   func_app_prereq
 
   func_print_head  "Install   NodeJS  Dependencies"
-  npm install
+  npm install &>>$log_file
   func_stat_check $?
 
   func_schema_setup
