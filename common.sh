@@ -109,9 +109,9 @@ func_java(){
   func_app_prereq
 
   func_print_head "Download Maven Dependencies "
-  mvn clean package &>>$log_file
+  mvn clean package
   func_stat_check $?
-  mv target/${component}-1.0.jar ${component}.jar &>>$log_file
+  mv target/${component}-1.0.jar ${component}.jar
 
   func_schema_setup
   func_systemd_setup
