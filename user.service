@@ -3,8 +3,8 @@ Description = User Service
 [Service]
 User=roboshop
 Environment=MONGO=true
-Environment=REDIS_HOST=redis-dev.rajasekhar72.store.store
-Environment=MONGO_URL="mongodb://mongodb-dev.rajasekhar72.store:27017/users"
+Environment=REDIS_HOST=redis-dev.saikumar22.store
+Environment=MONGO_URL="mongodb://mongodb-dev.saikumar22.store:27017/users"
 ExecStart=/bin/node /app/server.js
 SyslogIdentifier=user
 
